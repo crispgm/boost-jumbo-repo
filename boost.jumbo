@@ -1,0 +1,13 @@
+pkgname=boost
+pkgver=1.60.0
+pkgrel=1
+pkgdesc='Boost C++ Libraries'
+depends=('gcc')
+sources=("${JUMBO_REPO}/packages/${pkgname}/${pkgname}-${pkgver}.tar.gz")
+md5sums=('9ccf56b0097eaa0eeda15780a3a453a8')
+
+jumbo_install() {
+    cd "${srcdir}/${pkgname}-${pkgver}/"
+    /bootstrap.sh --prefix=~/.jumbo/
+    ./b2 install
+}
